@@ -1,0 +1,63 @@
+/* NEW CSS*/
+
+body {
+  background-color: rgb(245, 240, 240);
+}
+
+.login {
+  margin-top: 100px;
+  width: 400px;
+  height: 300px;
+}
+
+.register {
+  margin-top: 20px;
+  width: 400px;
+  height: 500px;
+}
+
+.header {
+  margin-top: 60px;
+  width: 800px;
+  height: 55px;
+}
+.app-container {
+  background-color: rgb(255, 255, 255);
+  width: 800px;
+  padding-bottom: 20px;
+  min-height: 500px;
+}
+
+.page-not-found {
+  margin-top: 100px;
+  height: 50px;
+  text-align: center;
+}
+
+.side-bar {
+  height: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-bottom: royalblue;
+}
+
+.app-content {
+  height: 100%;
+  width: 100%;
+}
+
+.order-list-container {
+  width: 400px;
+}
+
+.restaurant-card {
+  width: 10rem;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+/* OLD CSS*/
+
+img {
+  width: 80px;
+  height: 80px;
+}
