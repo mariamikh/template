@@ -4,8 +4,11 @@ import routes from './Config/routes.js';
 import AppRoute from './Components/AppRoute';
 import Header from './Components/Layout/header';
 import Navigation from './Components/Layout/navigation';
+import Register from './Components/Login/register';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+
+import Login from './Components/Login';
 
 function App() {
   return (
@@ -13,7 +16,7 @@ function App() {
       <Router>
         <React.Fragment>
           <Header />
-          <div className="container app-container border">
+          <div className="container app-container">
             <Navigation />
 
             <div className="container-fluid app-content">

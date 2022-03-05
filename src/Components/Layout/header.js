@@ -19,9 +19,7 @@ export default function Header(props) {
   return (
     <div className="container header">
       <nav className="navbar navbar-inverse">
-        <div className="navbar-header">
-          <h4>App Title </h4>
-        </div>
+        <div className="navbar-header">{/* <h4>App Title </h4> */}</div>
         {isAuthenticated ? (
           <ul className="nav navbar-nav navbar-right">
             <li>

@@ -29,12 +29,7 @@ export default function Navigation() {
           },
         ];
       default:
-        return [
-          {
-            name: 'default',
-            link: '/',
-          },
-        ];
+        return [];
     }
   }
 

@@ -19,6 +19,11 @@ export const AuthReducer = (initialState, action) => {
         ...initialState,
         loading: true,
       };
+    case 'REQUEST_REGISTER':
+      return {
+        ...initialState,
+        loading: true,
+      };
     case 'LOGIN_SUCCESS':
       return {
         ...initialState,
@@ -44,7 +49,13 @@ export const AuthReducer = (initialState, action) => {
         loading: false,
         errorMessage: action.error.message,
       };
-
+    case 'REGISTER_ERROR':
+      return {
+        ...initialState,
+        loading: false,
+        // errorMessage: action.error,
+        errorMessage: 'action.error',
+      };
     case 'ADD_DETAILS':
       return {
         ...initialState,

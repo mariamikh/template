@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { loginUser, useAuthState, useAuthDispatch } from '../../Context';
-import styles from './login.module.css';
 import { useHistory } from 'react-router-dom';
+import Error from '../Error/error';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 function Login(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const dispatch = useAuthDispatch(); //get the dispatch method from the useDispatch custom hook
   const { loading, errorMessage } = useAuthState();
+  const dispatch = useAuthDispatch();
   const history = useHistory();
 
   function openUserRegistration() {
@@ -26,45 +27,66 @@ function Login(props) {
   };
 
   return (
-    <div className="container login">
-      <div className={{ width: 200 }}>
-        <h5> Login</h5>
-        {errorMessage ? <p className={styles.error}>{errorMessage}</p> : null}
-        <form>
-          <div className={styles.loginForm}>
-            <div className={styles.loginFormItem}>
-              <label htmlFor="email">Username</label>
-              <input
-                type="text"
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                disabled={loading}
-              />
-            </div>
-            <div className={styles.loginFormItem}>
-              <label htmlFor="password">Password</label>
-              <input
-                type="password"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                disabled={loading}
-              />
+    <section className="ftco-section">
+      <div className="container">
+        <div className="row justify-content-center">
+          <div className="col-md-7 col-lg-5">
+            <div className="login-wrap p-4 p-md-5">
+              <div className="icon d-flex align-items-center justify-content-center">
+                <FontAwesomeIcon icon={faUser} color="white" />
+              </div>
+              <h3 className="text-center mb-4">Sign In</h3>
+              <form action="#" className="login-form">
+                <div className="form-group">
+                  <input
+                    type="text"
+                    className="form-control rounded-left"
+                    placeholder="Username"
+                    required
+                    id="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    disabled={loading}
+                  />
+                </div>
+                <div className="form-group d-flex">
+                  <input
+                    type="password"
+                    className="form-control rounded-left"
+                    placeholder="Password"
+                    required
+                    id="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    disabled={loading}
+                  />
+                </div>
+                <div className="form-group">
+                  <button
+                    type="submit"
+                    className="form-control btn btn-primary rounded submit px-3"
+                    onClick={handleLogin}
+                    disabled={loading}
+                  >
+                    Login
+                  </button>
+                </div>
+                <div className="form-group d-md-flex">
+                  <div className="w-50 text-md-right">
+                    {errorMessage ? <Error message={errorMessage} /> : null}
+                  </div>
+                  <div className="w-100 text-md-right">
+                    <a href="#" onClick={() => openUserRegistration()}>
+                      Sign Up
+                    </a>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
-          <button
-            type="submit"
-            className="btn btn-secondary "
-            onClick={handleLogin}
-            disabled={loading}
-          >
-            login
-          </button>
-        </form>
-        <p onClick={() => openUserRegistration()}>Register New User</p>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
 

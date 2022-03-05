@@ -1,5 +1,5 @@
 import React from 'react';
 
-export default function error(props) {
-  return <div className="text-danger">ERROR: {props.message}</div>;
+export default function Error(props) {
+  return <div className="text-danger">{props.message}</div>;
 }
